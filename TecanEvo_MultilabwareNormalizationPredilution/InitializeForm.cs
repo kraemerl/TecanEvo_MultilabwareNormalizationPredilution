@@ -55,6 +55,44 @@ namespace TecanEvo_MultilabwareNormalizationPredilution
 
         private void InitializeForm_Load(object sender, EventArgs e)
         {
+            if (m_args[1] == "config1")
+            {
+                cbSource.Items.Clear();
+                cbSource.Items.Add("Eppi 2ml");
+                cbSource.Items.Add("Micronic Tube 1.4ml");
+                cbSource.Items.Add("Micronic Tube 0.7ml");
+                cbSource.Items.Add("PCR Plate");
+                cbSource.Items.Add("DeepWell Plate");
+                cbSource.Items.Add("IScan Plate");
+
+                cbDestination.Items.Clear();
+                cbDestination.Items.Add("Eppi 2ml");
+                cbDestination.Items.Add("Micronic Tube 1.4ml");
+                cbDestination.Items.Add("Micronic Tube 0.7ml");
+                cbDestination.Items.Add("PCR Plate");
+                cbDestination.Items.Add("DeepWell Plate");
+                cbDestination.Items.Add("IScan Plate");
+                cbDestination.Items.Add("96 Well LVL SX - 300");
+            } else if (m_args[1] == "config2")
+            {
+                cbSource.Items.Clear();
+                cbSource.Items.Add("Eppi 2ml");
+                cbSource.Items.Add("Matrix Tube 0.4ml");
+                cbSource.Items.Add("Matrix Tube 0.7ml");
+                cbSource.Items.Add("PCR Plate");
+                cbSource.Items.Add("DeepWell Plate");
+                cbSource.Items.Add("IScan Plate");
+
+                cbDestination.Items.Clear();
+                cbDestination.Items.Add("Eppi 2ml");
+                cbDestination.Items.Add("Matrix Tube 0.4ml");
+                cbDestination.Items.Add("Matrix Tube 0.7ml");
+                cbDestination.Items.Add("PCR Plate");
+                cbDestination.Items.Add("DeepWell Plate");
+                cbDestination.Items.Add("IScan Plate");
+                cbDestination.Items.Add("96 Well LVL SX - 300");
+            }
+
             cbDestination.SelectedIndex = 0;
             cbSource.SelectedIndex = 0;
         }
@@ -265,7 +303,7 @@ namespace TecanEvo_MultilabwareNormalizationPredilution
                 }
             }
 
-            writeVariables(m_args[1]);
+            writeVariables(m_args[2]);
             m_retVal = 1;
             Application.Exit();
         }
@@ -373,6 +411,16 @@ namespace TecanEvo_MultilabwareNormalizationPredilution
                 chkMeasureVolume.Enabled = true;
             }
             else if (cbDestination.Text == "Micronic Tube 0.7ml")
+            {
+                m_maxTargetVol = 400;
+                chkMeasureVolume.Enabled = true;
+            }
+            else if (cbDestination.Text == "Matrix Tube 0.7ml")
+            {
+                m_maxTargetVol = 700;
+                chkMeasureVolume.Enabled = true;
+            }
+            else if (cbDestination.Text == "Matrix Tube 0.4ml")
             {
                 m_maxTargetVol = 400;
                 chkMeasureVolume.Enabled = true;

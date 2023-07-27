@@ -246,6 +246,10 @@ namespace TecanEvo_MultilabwareNormalizationPredilution
             {
                 readMicronicScanFile(file, sourceBarcodesDict, m_sampleSource);
             }
+            else if(m_sampleSource == "Matrix Tube 0.4ml" || m_sampleSource == "Matrix Tube 0.7ml")
+            {
+                readMicronicScanFile(file, sourceBarcodesDict, m_sampleSource);
+            }
             else if (m_sampleSource == "Eppi 2ml")
             {
                 readEppendorfScanFile("source", file, sourceBarcodesDict);
@@ -277,6 +281,10 @@ namespace TecanEvo_MultilabwareNormalizationPredilution
                 readEppendorfScanFile("destination", file, destinationBarcodesDict);
             }
             else if (m_sampleDestination == "Micronic Tube 1.4ml" || m_sampleDestination == "Micronic Tube 0.7ml")
+            {
+                readMicronicScanFile(file, destinationBarcodesDict, m_sampleDestination);
+            }
+            else if (m_sampleDestination == "Matrix Tube 0.4ml" || m_sampleDestination == "Matrix Tube 0.7ml")
             {
                 readMicronicScanFile(file, destinationBarcodesDict, m_sampleDestination);
             }
@@ -1346,6 +1354,14 @@ namespace TecanEvo_MultilabwareNormalizationPredilution
             {
                 return prefix + "Micronic07";
             }
+            else if (labwareName == "Matrix Tube 0.4ml")
+            {
+                return prefix + "Matrix04";
+            }
+            else if (labwareName == "Matrix Tube 0.7ml")
+            {
+                return prefix + "Matrix07";
+            }
             else if (labwareName == "PCR Plate")
             {
                 return prefix + "PCR Plate";
@@ -1420,6 +1436,14 @@ namespace TecanEvo_MultilabwareNormalizationPredilution
             else if (labwareName == "Micronic Tube 0.7ml")
             {
                 return "Micronic 0.7 mL";
+            }
+            else if (labwareName == "Matrix Tube 0.4ml")
+            {
+                return "Matrix 0.4 mL";
+            }
+            else if (labwareName == "Matrix Tube 0.7ml")
+            {
+                return "Matrix 0.7 mL";
             }
             else if (labwareName == "PCR Plate")
             {

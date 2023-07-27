@@ -21,7 +21,8 @@ namespace TecanEvo_MultilabwareNormalizationPredilution
             }
             if (args[0] == "initialize")
             {
-                /// args[1] = file name and path for variable export
+                /// args[1] = source and destination options
+                /// args[2] = file name and path for variable export
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 InitializeForm mf = new InitializeForm(args);
